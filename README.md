@@ -1,13 +1,31 @@
-# Sample Hardhat Project
+# ETHBerlin - Circular Merch Dapp project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+Circular Merch is a decentralized marketplace for buying and selling crypto merchandise between individuals.
+We serve four needs in the web3:
 
-Try running some of the following tasks:
+1. Sustainability: giving a second life to what we no longer wear
+2. Usefulness: engage the community and avoid excess merchandise at home
+3. Privacy: send and receive an item without revealing your personal information
+4. Transparency: share your article on Lens and create a reputation according to the score on our dapp.
+
+Run local :
+
+1. Clone this repo
+
+2. Install npm 
+```shell
+npm install
+```
+3. Start a local Hardhat node
 
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
 npx hardhat node
-npx hardhat run scripts/deploy.js
+```
+4. Deploy contracts
+```shell
+npx hardhat run scripts/deploy.js --network localhost
+```
+5. Start the app
+```shell
+npm run dev
 ```
