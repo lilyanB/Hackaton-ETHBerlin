@@ -13,7 +13,7 @@ contract NFTMarket is ReentrancyGuard {
   Counters.Counter private _itemsSold;
 
   address payable owner;
-  uint256 listingPrice = 0.025 ether;
+  uint256 listingPrice = 0.025 ether; //Listing fees
 
   constructor() {
     owner = payable(msg.sender);
@@ -26,6 +26,7 @@ contract NFTMarket is ReentrancyGuard {
     address payable seller;
     address payable owner;
     uint256 price;
+    address brand;
     bool sold;
   }
 
@@ -38,6 +39,7 @@ contract NFTMarket is ReentrancyGuard {
     address seller,
     address owner,
     uint256 price,
+    address brand,
     bool sold
   );
 
@@ -50,7 +52,8 @@ contract NFTMarket is ReentrancyGuard {
   function createMarketItem(
     address nftContract,
     uint256 tokenId,
-    uint256 price
+    uint256 price,
+    address brand
   ) public payable nonReentrant {
     require(price > 0, "Price must be at least 1 wei");
     require(msg.value == listingPrice, "Price must be equal to listing price");
@@ -65,6 +68,7 @@ contract NFTMarket is ReentrancyGuard {
       payable(msg.sender),
       payable(address(0)),
       price,
+      brand,
       false
     );
 
@@ -77,6 +81,7 @@ contract NFTMarket is ReentrancyGuard {
       msg.sender,
       address(0),
       price,
+      brand,
       false
     );
   }
@@ -96,7 +101,9 @@ contract NFTMarket is ReentrancyGuard {
     idToMarketItem[itemId].owner = payable(msg.sender);
     idToMarketItem[itemId].sold = true;
     _itemsSold.increment();
-    payable(owner).transfer(listingPrice);
+    uint256 royalities = listingPrice * 5 / 100;
+    payable(idToMarketItem[itemId].brand).transfer(royalities); //5% royalities
+    payable(owner).transfer(listingPrice-royalities);
   }
 
   /* Returns all unsold market items */
