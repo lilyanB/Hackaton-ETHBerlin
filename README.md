@@ -1,4 +1,4 @@
-# ETHBerlin - Circular Merch Dapp project
+# ETHBerlin - Circular Merch Dapp project 👚👔👕👖
 
 Circular Merch is a decentralized marketplace for buying and selling crypto merchandise between individuals.
 We serve four needs in the web3:
