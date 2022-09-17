@@ -68,15 +68,16 @@ export default function Home() {
     <div className="flex justify-center">
       <div className="px-4" style={{ maxWidth: '1600px' }}>
       
-      <p className='main'><b>Circular Merch</b> is a decentralized marketplace for buying and selling crypto merchandise between individuals. 
+      <p className='main1'><b>Circular Merch</b> is a decentralized marketplace for buying and selling crypto merchandise between individuals. 
         <br></br>Our dapp has an anonymised sending and receiving system. 
-        <br></br><br></br>We serve three needs in the web3: 
+        <br></br><br></br><b>We serve three needs in the web3: </b><br></br>
         <br></br><b>1. Sustainability:</b> giving a second life to what we no longer wear 
         <br></br><b>2. Usefulness:</b> engage the community and avoid excess merchandise at home 
         <br></br><b>3. Privacy:</b> send and receive an item without revealing your personal information
         <br></br><b>4. Transparency:</b> share your article on <b><a href="lens.xyz">Lens</a></b> and create a reputation according to the score on our dapp.
         <br></br>👚👔 👕 👖 
       </p>
+      <p className='explication'>Discover the latest articles</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {
             nfts.map((nft, i) => (

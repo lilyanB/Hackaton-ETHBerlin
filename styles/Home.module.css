@@ -19,8 +19,12 @@
   flex: 1;
   padding: 2rem 0;
   border-top: 1px solid #eaeaea;
+  color: white;
+  background-color: black;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5px;
+  
 }
 
 .footer a {

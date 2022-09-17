@@ -37,7 +37,7 @@ function Marketplace({ Component, pageProps }) {
       </nav>
       <Component {...pageProps} />
       <br></br>
-      <footer>Circle Merch - ETHB3RLIN 2022</footer>
+      <footer className='footer1'>Circle Merch - ETHB3RLIN 2022 👚👔👕👖</footer>
     </div>
   )
 }
