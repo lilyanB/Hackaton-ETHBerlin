@@ -1,0 +1,26 @@
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import Web3Modal from "web3modal"
+import Link from 'next/link'
+
+
+let rpcEndpoint = null
+
+if (process.env.NEXT_PUBLIC_WORKSPACE_URL) {
+  rpcEndpoint = process.env.NEXT_PUBLIC_WORKSPACE_URL
+}
+
+export default function Home() {
+    return(
+        <div>
+            <h1>Your merch has been listed !</h1>
+            <Link href="/">
+            <a className="mr-4 text-pink-500">
+              Go back to home page
+            </a>
+          </Link>
+        </div>
+
+
+    )
+}

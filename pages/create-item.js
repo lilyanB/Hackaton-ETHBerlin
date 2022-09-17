@@ -29,7 +29,7 @@ import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
-  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
+  const [formInput, updateFormInput] = useState({ price: '', size:'', name: '', description: '' })
   const router = useRouter()
 
   async function onChange(e) {
@@ -48,11 +48,11 @@ export default function CreateItem() {
     }  
   }
   async function createMarket() {
-    const { name, description, price } = formInput
-    if (!name || !description || !price || !fileUrl) return
+    const { name,size, description, price } = formInput
+    if (!name || !size || !description || !price || !fileUrl) return
     /* first, upload to IPFS */
     const data = JSON.stringify({
-      name, description, image: fileUrl
+      name, size, description, image: fileUrl
     })
     try {
       const added = await client.add(data)
@@ -87,24 +87,29 @@ export default function CreateItem() {
 
     transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
     await transaction.wait()
-    router.push('/')
+    router.push('./redirect')
   }
 
   return (
     <div className="flex justify-center">
       <div className="w-1/2 flex flex-col pb-12">
         <input 
-          placeholder="Asset Name"
+          placeholder="Merch type"
           className="mt-8 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
         />
+        <input
+          placeholder="Merch size"
+          className="mt-8 border rounded p-4"
+          onChange={e => updateFormInput({ ...formInput, size: e.target.value })}
+        />
         <textarea
-          placeholder="Asset Description"
+          placeholder="Merch Description"
           className="mt-2 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, description: e.target.value })}
         />
         <input
-          placeholder="Asset Price in Eth"
+          placeholder="Merch Price in MATIC"
           className="mt-2 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
         />
@@ -120,7 +125,7 @@ export default function CreateItem() {
           )
         }
         <button onClick={createMarket} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
-          Create Digital Asset
+          List your merch !👕
         </button>
       </div>
     </div>
