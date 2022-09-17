@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 function Marketplace({ Component, pageProps }) {
   return (
-    <div>
+    <div className='navbar'>
       <nav className="border-b p-6">
         <img
               src="/anonymerch_logo.png"
@@ -36,8 +36,9 @@ function Marketplace({ Component, pageProps }) {
         </div>
       </nav>
       <Component {...pageProps} />
+      <br></br>
+      <footer>Circle Merch - ETHB3RLIN 2022</footer>
     </div>
   )
 }
-
 export default Marketplace

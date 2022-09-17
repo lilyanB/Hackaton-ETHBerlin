@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+  .navbar{
+    justify-content: center;
+    font-size: 25px;
+    text-align: center;
+
+  }
