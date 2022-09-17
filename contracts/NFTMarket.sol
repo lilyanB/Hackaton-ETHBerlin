@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "hardhat/console.sol";
+//Circular Merch - ETHB3rlin
 
 contract NFTMarket is ReentrancyGuard {
   using Counters for Counters.Counter;

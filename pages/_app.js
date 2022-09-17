@@ -1,3 +1,4 @@
+//Circular Merch - ETHB3rlin
 import '../styles/globals.css'
 import Link from 'next/link'
 import { useState } from 'react';

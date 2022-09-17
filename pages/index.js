@@ -1,8 +1,8 @@
+//Circular Merch - ETHB3rlin
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
-
 
 import {
   nftaddress, nftmarketaddress
@@ -12,7 +12,7 @@ import {
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
-let rpcEndpoint = 'https://polygon-rpc.com/'
+let rpcEndpoint = 'https://polygon-mainnet.infura.io/v3/5bafc40913ae4a0ab7745f6fec51a04c'
 
 if (process.env.NEXT_PUBLIC_WORKSPACE_URL) {
   rpcEndpoint = process.env.NEXT_PUBLIC_WORKSPACE_URL
@@ -27,7 +27,7 @@ export default function Home() {
   }, [])
   //chargement des items
   async function loadNFTs() {    
-    const provider = new ethers.providers.JsonRpcProvider(rpcEndpoint)
+    const provider = new ethers.providers.JsonRpcProvider("https://matic-mumbai.chainstacklabs.com")
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
     const data = await marketContract.fetchMarketItems()
