@@ -11,6 +11,7 @@
   }
 
   .navbar{
+    margin-top: 28px;
     display: inline-block;
     list-style-type: none;
   }
@@ -19,14 +20,23 @@
     content:'';
     display:block;
     border:2px solid black;
-    margin-top: 5px;
+  }
+
+  .englobe{
+    margin-top: 40px;
   }
 
   .logocenter{
-    margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
+    display: inline-block;
+    vertical-align: top;
+    justify-content: center;
+  }
+
+  .metabox{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    
   }
 
   .explication{
@@ -72,4 +82,21 @@
   }
   .spimg{
     display: inline-flex;
+  }
+
+  .metabtn{
+    font-size: 15px;
+      padding: 10px;
+      border-radius: 16px;
+      background-color: purple;
+      color: white;
+      font-weight: bold;
+  }
+
+  .metabtn :hover{
+    background-color: blue;
+  }
+
+  .wlinfo{
+    font-size: 10px;
   }
