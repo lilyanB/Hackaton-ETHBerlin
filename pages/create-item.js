@@ -50,11 +50,12 @@ export default function CreateItem() {
   }
   async function createMarket() {
     const { name,size, description, price, brand } = formInput
-    if (!name || !size || !description || !price || !fileUrl ||!brand) return
+    if (!name || !size || !description || !price || !fileUrl) return
     /* first, upload to IPFS */
     const data = JSON.stringify({
       name, size, brand, description, image: fileUrl
     })
+    console.log(data)
     try {
       const added = await client.add(data)
       const url = `https://infura-ipfs.io/ipfs/${added.path}`
