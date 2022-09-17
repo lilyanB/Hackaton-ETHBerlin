@@ -93,7 +93,7 @@ export default function CreateItem() {
   }
 
   return (
-    <div className="row justify-content-center">
+    <div className="flex flex-col">
       <p className='create_title'>Welcome to our listing editor!</p><br></br>
       <p>Fill in all the necessary information for the sale.<br></br> Listing fee: 1 MATIC</p>
       <div className="w-1/2 flex flex-col pb-12 ">
