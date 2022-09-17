@@ -33,7 +33,7 @@ export default function Home() {
     
     const items = await Promise.all(data.map(async i => {
       const tokenUri = await tokenContract.tokenURI(i.tokenId)
-      const meta = await axios.get(tokenUri) // link to metadata on pinata ipfs
+      const meta = await axios.get(tokenUri) // link to metadata on ipfs
       let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
       let item = {
         price,
@@ -42,6 +42,8 @@ export default function Home() {
         owner: i.owner,
         image: meta.data.image,
         name: meta.data.name,
+        size: meta.data.size,
+        brand : meta.data.brand,
         description: meta.data.description,
       }
       return item
@@ -67,10 +69,17 @@ export default function Home() {
   return (
     <div className="flex justify-center">
       <div className="px-4" style={{ maxWidth: '1600px' }}>
-      
-      <p className='main1'><b>Circular Merch</b> is a decentralized marketplace for buying and selling crypto merchandise between individuals. 
-        <br></br>Our dapp has an anonymised sending and receiving system. 
-        <br></br><br></br><b>We serve three needs in the web3: </b><br></br>
+      <p className='main1'>
+      <img
+              src="/logo.png"
+              width="150"
+              height="60"
+              alt="Circle Merch logo"
+              className='spimg'
+            />
+      <b>Circular Merch</b> is a decentralized marketplace for buying and selling crypto merchandise between individuals. 
+        <br></br>Our dapp has an <b>anonymised sending</b> and <b>receiving system</b>. 
+        <br></br><br></br><b>We serve four needs in the web3: </b><br></br>
         <br></br><b>1. Sustainability:</b> giving a second life to what we no longer wear 
         <br></br><b>2. Usefulness:</b> engage the community and avoid excess merchandise at home 
         <br></br><b>3. Privacy:</b> send and receive an item without revealing your personal information
@@ -85,6 +94,8 @@ export default function Home() {
                 <img src={nft.image} />
                 <div className="p-4">
                   <p style={{ height: '64px' }} className="text-2xl font-semibold">{nft.name}</p>
+                  <p style={{ height: '64px' }} className="text-2xl font-semibold">Size: {nft.size}</p>
+                  <p style={{ height: '64px' }} className="text-2xl font-semibold">Brand: {nft.brand}</p>
                   <div style={{ height: '70px', overflow: 'hidden' }}>
                     <p className="text-gray-400">{nft.description}</p>
                   </div>
@@ -99,5 +110,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    
   )
 }

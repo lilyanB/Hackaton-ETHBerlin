@@ -19,6 +19,16 @@ export default function Home() {
               Go back to home page
             </a>
           </Link>
+          <div className='imgcenter'>
+          <img
+              src="/anonymerch_logo.png"
+              width="600"
+              height="240"
+              className="d-inline-block align-top"
+              alt="Circle Merch logo"
+            />
+          </div>
+          
         </div>
 
 

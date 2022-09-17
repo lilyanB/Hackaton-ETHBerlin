@@ -10,7 +10,7 @@ function Marketplace({ Component, pageProps }) {
               width="300"
               height="120"
               className="d-inline-block align-top"
-              alt="React Bootstrap logo"
+              alt="Circle Merch logo"
             />
         <div className="flex mt-4">
           <Link href="/">
@@ -39,6 +39,7 @@ function Marketplace({ Component, pageProps }) {
       <br></br>
       <footer className='footer1'>Circle Merch - ETHB3RLIN 2022 👚👔👕👖</footer>
     </div>
+    
   )
 }
 export default Marketplace

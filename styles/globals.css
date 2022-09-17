@@ -21,10 +21,10 @@
   .footer1 {
     display: flex;
     flex: 1;
-    padding: 2rem 0;
+    padding: 1rem 0;
     border-top: 1px solid #eaeaea;
     color: white;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.541);
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
@@ -35,4 +35,22 @@
     right: 0px;
     margin-bottom: 0px;
     flex-shrink: 0;
+  }
+
+  .imgcenter{
+    justify-content: center;
+  }
+
+  .create_title{
+    font-size: 45px;
+    justify-content: center;
+    display: flex;
+
+  }
+
+  .listingcreate{
+    display: row;
+  }
+  .spimg{
+    display: inline-flex;
   }

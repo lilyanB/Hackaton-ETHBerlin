@@ -28,8 +28,9 @@ import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
 export default function CreateItem() {
+  
   const [fileUrl, setFileUrl] = useState(null)
-  const [formInput, updateFormInput] = useState({ price: '', size:'', name: '', description: '' })
+  const [formInput, updateFormInput] = useState({ price: '', size:'', name: '', description: '', brand:'' })
   const router = useRouter()
 
   async function onChange(e) {
@@ -48,17 +49,18 @@ export default function CreateItem() {
     }  
   }
   async function createMarket() {
-    const { name,size, description, price } = formInput
-    if (!name || !size || !description || !price || !fileUrl) return
+    const { name,size, description, price, brand } = formInput
+    if (!name || !size || !description || !price || !fileUrl ||!brand) return
     /* first, upload to IPFS */
     const data = JSON.stringify({
-      name, size, description, image: fileUrl
+      name, size, brand, description, image: fileUrl
     })
     try {
       const added = await client.add(data)
       const url = `https://infura-ipfs.io/ipfs/${added.path}`
       /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
       createSale(url)
+      console.log(data) //check metadata
     } catch (error) {
       console.log('Error uploading file: ', error)
     }  
@@ -91,18 +93,35 @@ export default function CreateItem() {
   }
 
   return (
-    <div className="flex justify-center">
-      <div className="w-1/2 flex flex-col pb-12">
+    <div className="row justify-content-center">
+      <p className='create_title'>Welcome to our listing editor!</p><br></br>
+      <p>Fill in all the necessary information for the sale.<br></br> Listing fee: 1 MATIC</p>
+      <div className="w-1/2 flex flex-col pb-12 ">
         <input 
           placeholder="Merch type"
           className="mt-8 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
         />
-        <input
-          placeholder="Merch size"
-          className="mt-8 border rounded p-4"
-          onChange={e => updateFormInput({ ...formInput, size: e.target.value })}
-        />
+        <p className="mt-8 border rounded p-4">Select Size : </p>
+        <select onChange={e => updateFormInput({ ...formInput, size: e.target.value })}
+          className="mt-8 border rounded p-4">
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+          <option value="standard">standard</option>
+   		  </select>
+        <p className="mt-8 border rounded p-4">Select Protocol/Brand : </p>
+        <select onChange={e => updateFormInput({ ...formInput, brand: e.target.value })}
+          className="mt-8 border rounded p-4">
+          <option value="AAVE.eth">AAVE</option>
+          <option value="LENS.eth">LENS</option>
+          <option value="SISMO.eth">SISMO</option>
+          <option value="#">Not listed</option>
+   		  </select>
+
         <textarea
           placeholder="Merch Description"
           className="mt-2 border rounded p-4"
