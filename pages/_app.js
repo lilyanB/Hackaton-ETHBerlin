@@ -5,7 +5,13 @@ function Marketplace({ Component, pageProps }) {
   return (
     <div>
       <nav className="border-b p-6">
-        <p className="text-4xl font-bold">Anonymerch</p>
+        <img
+              src="/anonymerch_logo.png"
+              width="300"
+              height="120"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
         <div className="flex mt-4">
           <Link href="/">
             <a className="mr-4 text-pink-500">
@@ -17,14 +23,14 @@ function Marketplace({ Component, pageProps }) {
               Sell Merch
             </a>
           </Link>
-          <Link href="/my-assets">
+          <Link href="/my-merch">
             <a className="mr-6 text-pink-500">
-              My listed Merch
+              My Merch
             </a>
           </Link>
           <Link href="/creator-dashboard">
             <a className="mr-6 text-pink-500">
-              Creator Dashboard
+              Dashboard
             </a>
           </Link>
         </div>

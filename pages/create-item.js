@@ -1,10 +1,24 @@
 import { useState } from 'react'
 import { ethers } from 'ethers'
-import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
+import { Buffer } from 'buffer';
+import { create } from 'ipfs-http-client'
 
-const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+const projectId = '2EtSJasg1MIDYBOh52g4StEqaT3';
+const projectSecret = 'f960141cf1dd7461d40eeb84cf85b020';
+const auth =
+    'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
+
+const client = create({
+    host: 'infura-ipfs.io',
+    port: 5001,
+    protocol: 'https',
+    headers: {
+        authorization: auth,
+    },
+});
+
 
 import {
   nftaddress, nftmarketaddress
@@ -27,13 +41,13 @@ export default function CreateItem() {
           progress: (prog) => console.log(`received: ${prog}`)
         }
       )
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`
+      const url = `https://infura-ipfs.io/ipfs/${added.path}`
       setFileUrl(url)
     } catch (error) {
       console.log('Error uploading file: ', error)
     }  
   }
-  async function CreateItem() {
+  async function createMarket() {
     const { name, description, price } = formInput
     if (!name || !description || !price || !fileUrl) return
     /* first, upload to IPFS */
@@ -42,7 +56,7 @@ export default function CreateItem() {
     })
     try {
       const added = await client.add(data)
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`
+      const url = `https://infura-ipfs.io/ipfs/${added.path}`
       /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
       createSale(url)
     } catch (error) {
@@ -56,7 +70,7 @@ export default function CreateItem() {
     const provider = new ethers.providers.Web3Provider(connection)    
     const signer = provider.getSigner()
     
-    /* create the item */
+    /* next, create the item */
     let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
     let transaction = await contract.createToken(url)
     let tx = await transaction.wait()
@@ -73,7 +87,7 @@ export default function CreateItem() {
 
     transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
     await transaction.wait()
-    router.push('/') // back to the main page
+    router.push('/')
   }
 
   return (
@@ -105,7 +119,7 @@ export default function CreateItem() {
             <img className="rounded mt-4" width="350" src={fileUrl} />
           )
         }
-        <button onClick={CreateItem} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
+        <button onClick={createMarket} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
           Create Digital Asset
         </button>
       </div>
