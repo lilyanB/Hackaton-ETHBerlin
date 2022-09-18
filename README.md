@@ -21,7 +21,7 @@ npm install
 ```shell
 npx hardhat node
 ```
-4. Deploy contracts
+4. Deploy contracts (local)
 ```shell
 npx hardhat run scripts/deploy.js --network localhost
 ```
@@ -31,3 +31,9 @@ npm run dev
 ```
 # Live demo : 
 https://ethberlin-circularmerch.vercel.app/
+
+# Contracts on Polygon Mumbai :
+0xDC3578584a2726283BF1acC7560B7193f270c276
+https://mumbai.polygonscan.com/address/0xDC3578584a2726283BF1acC7560B7193f270c276
+
+I hope you will like our project ! 👚👔👕👖
