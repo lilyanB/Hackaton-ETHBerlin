@@ -29,7 +29,7 @@ export default function ZK_Badge() {
                 <div className='flex flex-row content-center space-x-4'>
                     <a href="https://www.sismo.io/">
                         <img
-                            src="/100lensfollow.png"
+                            src="/50bestFollowed.png"
                             width="400"
                             height="250"
                             alt="ZK-Badge Sismo"
@@ -38,17 +38,7 @@ export default function ZK_Badge() {
                     </a>
                     <a href="https://www.sismo.io/">
                     <img
-                        src="/1000lensfollowers.png"
-                        width="400"
-                        height="250"
-                        alt="ZK-Badge Sismo"
-                        className='zkimage'
-                        />
-                    </a>
-                    
-                    <a href="https://www.sismo.io/">
-                    <img
-                        src="/circularmerchlens.png"
+                        src="/CircularMerchLens.png"
                         width="400"
                         height="250"
                         alt="ZK-Badge Sismo"
