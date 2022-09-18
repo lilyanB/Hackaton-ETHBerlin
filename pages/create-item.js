@@ -121,6 +121,7 @@ export default function CreateItem() {
           <option value="LENS">LENS</option>
           <option value="SISMO">SISMO</option>
           <option value="ETHBERLIN">ETHBERLIN</option>
+          <option value="POLYGON">POLYGON</option>
           <option value="#">Not listed</option>
    		  </select>
 
