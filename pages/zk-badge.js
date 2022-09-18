@@ -27,7 +27,7 @@ export default function ZK_Badge() {
                 </p>
 
                 <div className='flex flex-row content-center space-x-4'>
-                    <a href="https://playground.sismo.io/mint?collectionIds=[12]&goBackPath=creator-dashboard">
+                    <a href="https://playground.sismo.io/mint?collectionIds=[10000012]&goBackPath=creator-dashboard">
                         <img
                             src="/50bestFollowed.png"
                             width="400"
@@ -36,7 +36,7 @@ export default function ZK_Badge() {
                             className='zkimage'
                             />
                     </a>
-                    <a href="https://playground.sismo.io/mint?collectionIds=[11]&goBackPath=creator-dashboard">
+                    <a href="https://playground.sismo.io/mint?collectionIds=[10000011]&goBackPath=creator-dashboard">
                     <img
                         src="/circularmerchlens.png"
                         width="400"
