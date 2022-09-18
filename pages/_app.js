@@ -88,6 +88,11 @@ function Marketplace({ Component, pageProps }) {
               ZK-Badges
             </a>
           </Link>
+          <Link href="/lens-feed">
+            <a className="mr-6 text-purple-500">
+              Lens
+            </a>
+          </Link>
         </div>
       </nav>
       </div>
