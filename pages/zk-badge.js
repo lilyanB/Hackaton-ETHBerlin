@@ -38,7 +38,7 @@ export default function ZK_Badge() {
                     </a>
                     <a href="https://www.sismo.io/">
                     <img
-                        src="/CircularMerchLens.png"
+                        src="/circularmerchlens.png"
                         width="400"
                         height="250"
                         alt="ZK-Badge Sismo"
