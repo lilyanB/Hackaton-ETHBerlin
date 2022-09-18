@@ -100,3 +100,12 @@
   .wlinfo{
     font-size: 10px;
   }
+
+.zkimage{
+  border-radius: 16px;
+}
+
+.zkimage:hover{
+  box-shadow: 0 0 11px purple; 
+
+}

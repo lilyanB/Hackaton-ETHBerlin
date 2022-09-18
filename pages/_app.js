@@ -83,6 +83,11 @@ function Marketplace({ Component, pageProps }) {
               Dashboard
             </a>
           </Link>
+          <Link href="/zk-badge">
+            <a className="mr-6 text-purple-500">
+              ZK-Badges
+            </a>
+          </Link>
         </div>
       </nav>
       </div>
