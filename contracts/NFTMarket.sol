@@ -82,7 +82,6 @@ contract NFTMarket is ReentrancyGuard {
   }
 
   /* Creates the sale of a marketplace item */
-  /* Transfers ownership of the item, as well as funds between parties */
   function createMarketSale(
     address nftContract,
     uint256 itemId
@@ -142,6 +141,7 @@ contract NFTMarket is ReentrancyGuard {
   }
 
   /* Returns only items a user has created */
+  /* Usefull for displaying NFTs */
   function fetchItemsCreated() public view returns (MarketItem[] memory) {
     uint totalItemCount = _itemIds.current();
     uint itemCount = 0;
