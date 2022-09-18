@@ -84,7 +84,7 @@ export default function Home() {
         <br></br><b>1. Sustainability:</b> giving a second life to what we no longer wear 
         <br></br><b>2. Usefulness:</b> engage the community and avoid excess merchandise at home 
         <br></br><b>3. Privacy:</b> send and receive an item without revealing your personal information
-        <br></br><b>4. Transparency:</b> share your article on <b><a href="lens.xyz">Lens</a></b> and create a reputation according to the score on our dapp.
+        <br></br><b>4. Transparency:</b> share your article on <b><a href="https://lens.xyz/">Lens</a></b> and create a reputation according to the score on our dapp.
         <br></br>👚👔 👕 👖 
       </p>
       <p className='explication'>Discover the latest articles</p>

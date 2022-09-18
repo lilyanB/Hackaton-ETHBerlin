@@ -109,3 +109,8 @@
   box-shadow: 0 0 11px purple; 
 
 }
+
+.divcenter {
+  margin: auto;
+  width: 50%;
+margin-top: 20px;}
