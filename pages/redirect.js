@@ -11,7 +11,7 @@ if (process.env.NEXT_PUBLIC_WORKSPACE_URL) {
   rpcEndpoint = process.env.NEXT_PUBLIC_WORKSPACE_URL
 }
 
-export default function Home() {
+export default function Redirect() {
     return(
         <div>
             <h1>Your merch has been listed !</h1>

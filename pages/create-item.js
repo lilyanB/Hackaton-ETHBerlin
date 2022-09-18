@@ -117,9 +117,11 @@ export default function CreateItem() {
         <p className="mt-8 border rounded p-4">Select Protocol/Brand : </p>
         <select onChange={e => updateFormInput({ ...formInput, brand: e.target.value })}
           className="mt-8 border rounded p-4">
-          <option value="AAVE.eth">AAVE</option>
-          <option value="LENS.eth">LENS</option>
-          <option value="SISMO.eth">SISMO</option>
+          <option value="AAVE">AAVE</option>
+          <option value="LENS">LENS</option>
+          <option value="SISMO">SISMO</option>
+          <option value="ETHBERLIN">ETHBERLIN</option>
+          <option value="POLYGON">POLYGON</option>
           <option value="#">Not listed</option>
    		  </select>
 
